@@ -1,0 +1,8 @@
+ORPort 443
+Exitpolicy reject *:*
+Nickname FirstTorrBridge
+ContactInfo anamayav@gmail.com
+Log notice file /var/log/tor/notices.log
+Log debug file /var/log/tor/debug.log
+RelayBandwidthRate 1024 KB
+RelayBandwidthBurst 1024 KB
