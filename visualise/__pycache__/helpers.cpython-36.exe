@@ -1,0 +1,34 @@
+3
+
+Jå[Ê  ã               @   sd   d dl Z d dlZd dlZd dlmZ d dlZd dlZd dl	Z	g Z
+dd„ Zdd„ Zdd„ Z
+d	d
+„ ZdS )é    N)Úsystemc             C   s   dd„ | d |… D ƒ}|S )Nc             S   s   g | ]}d |d  ‘qS )zhttp://ip-api.com/json/é   © )Ú.0Úrowr   r   ú*C:\Users\Dell\Desktop\visualise\helpers.pyú
+<listcomp>   s    z!gen_list_urls.<locals>.<listcomp>r   )Ú
+relay_dataÚpointsÚurlsr   r   r   Ú
+gen_list_urls   s    r   c             C   s   dd„ | D ƒ}t j|ƒ}|S )zb
+    :param: ipaddress to look up
+    :returns: A dict containing all information post lookup
+    c             s   s   | ]}t j|ƒV  qd S )N)Ú	grequestsÚget)r   Úur   r   r   ú	<genexpr>   s    zlookup.<locals>.<genexpr>)r
+   Úmap)r   ÚresZ
+consol_resr   r   r   Úlookup   s    
+r   c             C   s(   t j| ƒ}|jƒ }|jdƒ}|jƒ }|S )z¦
+    For reading from cache.sqlite file
+    :param: path to the cache file
+    :returns: A list containing tuples where each tuple represents a row [(), (), ()]
+
+    zSELECT * FROM relays)Úsqlite3ÚconnectZcursorÚexecuteZfetchall)ÚpathÚconnÚcr	   r   r   r   Úindex_data_from_cache_file   s
+    
+
+r   c             C   s   t | ƒ}t||ƒ}t|ƒ}g }g }g }g }xL|D ]D}	|	jƒ }
+|j|
+d ƒ |j|
+d ƒ |j|
+d ƒ |j|
+d ƒ q0W tj||||dœƒ}|S )NZcityZlatZlonZcountry)ZCityZCountryZLatitudeZ	Longitude)r   r   r   ZjsonÚappendÚpdZ	DataFrame)r   r
+   Zraw_datar   Z
+all_responsesZcitiesZ	countriesZlatsZlongsr   Zres_dataZdfr   r   r   Úgen_data_frame'   s$    
+
+
+r   )r
+   ÚargparseÚosÚplatformr   Zos_nameZpandasr   Zrequestsr   Zlookup_datar   r   r   r   r   r   r   r   Ú<module>   s   	
