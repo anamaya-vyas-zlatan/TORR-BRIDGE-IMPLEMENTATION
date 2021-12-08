@@ -1,4 +1,4 @@
-[0:49 pm, 08/12/2021] anamay vyas vit: ## Configuration file for a typical Tor user
+## Configuration file for a typical Tor user
 ## Last updated 9 October 2013 for Tor 0.2.5.2-alpha.
 ## (may or may not work for much older or much newer versions of Tor.)
 ##
@@ -41,7 +41,8 @@
 #Log notice syslog
 ## To send all messages to stderr:
 #Log debug stderr
-[0:50 pm, 08/12/2021] anamay vyas vit: ## Uncomment this to start the process in the background... or use
+
+## Uncomment this to start the process in the background... or use
 ## --runasdaemon 1 on the command line. This is ignored on Windows;
 ## see the FAQ entry if you want Tor to run as an NT service.
 #RunAsDaemon 1
